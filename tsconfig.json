@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", // pasta de saida dos js gerados
+    "module": "CommonJS", // para usar o import e export mas quando buildar, é a versão que browser intenda
+    "target": "ES2022", // Versão do ES que quero que gere (maior compatibilidade)
+    "esModuleInterop": true,
+    "allowJs": true
+  }
+}
