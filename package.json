@@ -1,0 +1,20 @@
+{
+  "name": "confeitaria-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/server.ts",
+  "keywords": [],
+  "author": "Vinicius Duarte",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicmd/love-wallet-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinicmd/love-wallet-api/issues"
+  },
+  "homepage": "https://github.com/vinicmd/love-wallet-api#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
