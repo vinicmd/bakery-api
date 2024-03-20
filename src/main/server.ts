@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 
-import app from '../config/app'
-import { envConstants } from '../config/env-constants'
+import app from '../configs/app'
+import { envConstants } from '../configs/env-constants'
 
 dotenv.config()
 
