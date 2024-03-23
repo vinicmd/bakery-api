@@ -7,6 +7,13 @@ import { MissingParamError } from '../../errors/missing-param-error'
 import { badRequest } from '../../helpers/http'
 import { isValidEmail } from '../../helpers/is-valid-email'
 
+interface RequiredFields {
+  name: string
+  email: string
+  password: string
+  passwordConfirmation: string
+}
+
 export const createUser = async (req: Request, res: Response) => {
   try {
     const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
@@ -17,17 +24,18 @@ export const createUser = async (req: Request, res: Response) => {
       }
     }
 
-    const { name, email, password, passwordConfirmation } = req.body
+    const { name, email, password, passwordConfirmation }: RequiredFields =
+      req.body
 
     if (password !== passwordConfirmation) {
       return badRequest(res, InvalidParamError('password'))
     }
 
-    if (!isValidEmail(email as string)) {
+    if (!isValidEmail(email)) {
       return badRequest(res, InvalidParamError('email'))
     }
 
-    if (await emailAlreadyRegistered(email as string)) {
+    if (await emailAlreadyRegistered(email)) {
       return badRequest(res, InvalidParamError('email'))
     }
 
