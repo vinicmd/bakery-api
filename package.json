@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/vinicmd/bakery-api#readme",
   "scripts": {
-    "start": "nodemon src/main/server.ts",
+    "dev": "nodemon src/main/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/main/server.js",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:watch": "npm test -- --watch",
