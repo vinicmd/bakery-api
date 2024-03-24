@@ -18,13 +18,17 @@ export const editIngredient = async (
   res: Response
 ) => {
   try {
-    const { ingredientId } = req.params
-
-    if (!ingredientId) {
+    if (!req.params.ingredientId) {
       return badRequest(res, MissingParamError('ingredientId'))
     }
 
+    const { ingredientId } = req.params
+
     const { name, volume }: RequiredBody = req.body
+
+    if (!name && !volume) {
+      return badRequest(res, MissingParamError('name and volume'))
+    }
 
     const ingredient = await dbUpdateIngredient({
       id: ingredientId,
