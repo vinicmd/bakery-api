@@ -2,6 +2,7 @@ import { type Express, Router } from 'express'
 
 import { login } from '../controllers/auth/login'
 import { createIngredient } from '../controllers/ingredient/create-ingredient'
+import { deleteIngredient } from '../controllers/ingredient/delete-ingredient'
 import { editIngredient } from '../controllers/ingredient/edit-ingredient'
 import { listIngredients } from '../controllers/ingredient/list-ingredients'
 import { createUser } from '../controllers/user/create-user'
@@ -22,6 +23,8 @@ export default (app: Express): void => {
   router.post('/ingredient', createIngredient)
 
   router.put('/ingredient/:ingredientId', editIngredient)
+
+  router.delete('/ingredient/:ingredientId', deleteIngredient)
 
   router.get('*', (_req, res) => res.sendStatus(404))
 
